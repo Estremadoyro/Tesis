@@ -116,6 +116,53 @@ X_train.head()
 
 #Estructuracion de la arquitectura de red neuronal, en este caso RN4
 #glorot_uniform = Xavier Initialization 
+
+# -------- RN 1 -------- #
+model = tf.keras.models.Sequential(
+    [
+     tf.keras.layers.InputLayer(input_shape=X_train.iloc[0, :].shape),
+     tf.keras.layers.Dense(2, kernel_initializer="glorot_uniform", use_bias=False),
+     tf.keras.layers.BatchNormalization(),
+     tf.keras.layers.Activation("tanh"),
+     tf.keras.layers.Dense(1)
+     
+    ]
+)
+
+# -------- RN 2 -------- #
+model = tf.keras.models.Sequential(
+    [
+     tf.keras.layers.InputLayer(input_shape=X_train.iloc[0, :].shape),
+     tf.keras.layers.Dense(3, kernel_initializer="glorot_uniform", use_bias=False),
+     tf.keras.layers.BatchNormalization(),
+     tf.keras.layers.Activation("tanh"),
+     tf.keras.layers.Dense(2, kernel_initializer="glorot_uniform", use_bias=False),
+     tf.keras.layers.BatchNormalization(),
+     tf.keras.layers.Activation("tanh"),
+     tf.keras.layers.Dense(1)
+     
+    ]
+)
+
+# -------- RN 3 -------- #
+model = tf.keras.models.Sequential(
+    [
+     tf.keras.layers.InputLayer(input_shape=X_train.iloc[0, :].shape),
+     tf.keras.layers.Dense(4, kernel_initializer="glorot_uniform", use_bias=False),
+     tf.keras.layers.BatchNormalization(),
+     tf.keras.layers.Activation("tanh"),
+     tf.keras.layers.Dense(5, kernel_initializer="glorot_uniform", use_bias=False),
+     tf.keras.layers.BatchNormalization(),
+     tf.keras.layers.Activation("tanh"),
+     tf.keras.layers.Dense(5, kernel_initializer="glorot_uniform", use_bias=False),
+     tf.keras.layers.BatchNormalization(),
+     tf.keras.layers.Activation("tanh"),
+     tf.keras.layers.Dense(1)
+     
+    ]
+)
+
+# -------- RN 4 -------- #
 model = tf.keras.models.Sequential(
     [
      tf.keras.layers.InputLayer(input_shape=X_train.iloc[0, :].shape),
