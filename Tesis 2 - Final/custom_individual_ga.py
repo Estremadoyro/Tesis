@@ -50,7 +50,7 @@ np.set_printoptions(precision=3, suppress=True)
 creator.create("FitnessMin", base.Fitness, weights=(-1.0,))
 creator.create("Individual", list, fitness=creator.FitnessMin)
 
-#Create individual
+#Crear agente ANN
 class Agente(object):
     def __init__(self, num_input, max_num_hidden):
         self.num_input = num_input
@@ -87,6 +87,7 @@ def newIndividual(num_input, max_num_hidden):
     return agent
 print(newIndividual(16,10))
 #with tf.device('/GPU:0'):
+#Crear agente SVM
 def agent_SVM(): 
     ind = []
     gamma = random.uniform(0.0001, 0.001)
@@ -99,6 +100,7 @@ def agent_SVM():
     return ind
 print(agent_SVM())
 
+#Crear agente GBT
 def agent_GBT():
     ind = []
     learningRate = round(random.uniform(0.01, 1), 2)
@@ -123,9 +125,15 @@ print(agent_GBT())
 
 toolbox = base.Toolbox()
 #Asignar class type deap.creator.Individual a nuestro individuo
-#num_input, max_num_hidden
+
+## Registrar con ANN 
+# Commentario: num_input, max_num_hidden
 #toolbox.register("individual", newIndividual, 16, 10)
+
+## Registrar con SVM
 toolbox.register("individual", agent_SVM)
+
+## Registrar con GBT
 #toolbox.register("individual", agent_GBT)
 print(type(toolbox.individual()))
 toolbox.individual()
@@ -523,11 +531,7 @@ ax2.label_outer()
 ax3.label_outer()
 fig.text(0.06, 0.5, 'Ventas', va='center', rotation='vertical')
 plt.xlabel("Fechas")
-#fig.set_position([box.x0, box.y0 + box.height * 0.1,
-                 #box.width, box.height * 0.9])
 fig.legend([l1, l2, l3, l4], labels=line_labels, loc='center right', title='Leyenda', fancybox=True, shadow=True)
-#ax.legend([l1, l2, l3, l4], labels=line_labels, loc='upper center', bbox_to_anchor=(0.5, -0.05),
-          #fancybox=True, shadow=True, ncol=len(pred_filter["Dates"]))
 plt.show()
 
 #Operadores Geneticos
