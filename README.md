@@ -1,4 +1,5 @@
 ## Métodos de Machine Learning para pronosticar la demanda de productos de retail 
+![alt text](https://ibb.co/NpBYJ49)
 
 ### Fuente de Datos 
 Este link de Kaggle contiene la DB utilizada. 
